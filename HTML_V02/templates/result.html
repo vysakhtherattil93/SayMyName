@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result Page</title>
+</head>
+<body>
+    <form>
+        <h1>SUCCESS YOU HAVE ENTERED THE DATA</h1>
+        <p>Student ID: {{data.data['student_id']}} </p>
+        <p>First Name: {{data.data['first_name']}} </p>
+        <p>Last Name: {{data.data['last_name']}} </p>
+        <p>Full name: {{data.data['full_name']}} </p>
+        <p>First Name Phonetics(English): {{data.data['first_name_p_eng']}} </p>
+        <p>First Name Phonetics: {{data.data['first_name_p']}}</p>
+        <p>Last Name Phonetics(English): {{data.data['last_name_p_eng']}}</p>
+        <p>Last Name Phonetics: {{data.data['last_name_p']}}</p>
+        <p>Student ID: {{data.results[0]["student_id"]}}</p>
+        <p>Votes: {{data.results[0]["votes"]}}</p>
+        <p>ID: {{data.results[0]["id"]}}</p>
+        <p>Name Selection: {{data.results[0]["name_selection"]}}</p>
+        <p>Name: {{data.results[0]["name"]}}</p>
+        <p>Show: {{data.results[0]["show"]}}</p>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,8 @@
+HTML_V01:
+* Created basic html page and added all the required fields.
+* Able to display all the entered fields successfully in results page (another HTML page)
+
+HTML_V02:
+* Made changes in main.py and result.html file for displaying the data given from back end.
+* Displayed all the data by hard coding the data (from backend) in main.py file.
+

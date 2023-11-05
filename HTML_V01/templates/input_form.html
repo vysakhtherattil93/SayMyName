@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1><b>Welcome</b></h1>
+    <h1><b>Save My Name</b></h1>
+    <form method="POST" action="/process">
+
+        <!-- Inputting the name of user-->
+        <label for="name">First name *</label>
+        <input type="text" name="name" id="name", placeholder="First name">
+        <span class="validity"></span>
+        <p> Please enter the lower case or upper case letters </p> <br/>
+
+        <label for="mname">Middle name (Optional)</label>
+        <input type="text" name="mname" id="mname", placeholder="Middle name">
+        <!--<span class="validity"></span>-->
+        <p> Please enter the lowercase or upper case letters </p><br />
+        
+        <label for="lname">Last name *</label>
+        <input type="text" name="lname" id="lname", placeholder="Last name">
+        <!--<span class="validity"></span>-->
+        <p> Please enter the lowercase or upper case letters </p><br />
+        
+
+        <!-- Inputting the Student ID of user-->
+        <label for="id">Please enter your ID *</label>
+        <input type="text" name="id" id="id", placeholder="Student ID"><br /><br />
+        <!--<span class="validity"></span>-->
+    
+
+        <!-- Program Selection Tab -->
+        <label for="program">Course Selected: * </label>
+        <select name="program" id="program">
+            <option value="Artificial Intelligence and Data Science">Artificial Intelligence and Data Science</option> <option value="Cyber Security">Cyber Security</option> <option value="Financial Technology">Financial Technology</option>
+            <option value="Project Management">Project Management</option> <option value="Supply Chain Management-Global Logistics">Supply Chain Management-Global Logistics</option>
+        </select><br /><br />
+
+        <!-- Intake Selection Tab -->
+        <label for="intake">Intake: * </label>
+        <select name="intake" id="intake">
+            <option value="September/Fall">September/Fall</option> <option value="January/Winter">January/Winter</option> 
+            <option value="May/Summer">May/Summer</option>
+        </select><br /><br />
+
+        <!-- Language Selection Tab -->
+        <label for="language">Select Language: * </label>
+        <select name="language" id="language">
+            <option value="Afrikaans">Afrikaans</option> <option value="Albanian">Albanian</option> <option value="Arabic">Arabic</option>
+            <option value="Armenian">Armenian</option> <option value="Bengali">Bengali</option> <option value="Bosnian">Bosnian</option>
+            <option value="Catalan">Catalan</option> <option value="Croatian">Croatian</option> <option value="Czech">Czech</option>
+            <option value="Danish">Danish</option> <option value="Dutch">Dutch</option> <option value="English">English</option>
+            <option value="Esperanto">Esperanto</option> <option value="Estonian">Estonian</option> <option value="Filipino">Filipino</option>
+            <option value="Finnish">Finnish</option> <option value="French">French</option> <option value="German">German</option>
+            <option value="Greek">Greek</option> <option value="Gujarati">Gujarati</option> <option value="Hindi">Hindi</option>
+            <option value="Hungarian">Hungarian</option> <option value="Icelandic">Icelandic</option> <option value="Indonesian">Indonesian</option> 
+            <option value="Italian">Italian</option> <option value="Japanese">Japanese</option> <option value="Javanese">Javanese</option>
+            <option value="Kannada">Kannada</option> <option value="Khmer">Khmer</option> <option value="Korean">Korean</option>
+            <option value="Latin">Latin</option> <option value="Latvian">Latvian</option> <option value="Macedonian">Macedonian</option>
+            <option value="Malayalam">Malayalam</option> <option value="Marathi">Marathi</option> <option value="Myanmar">Myanmar</option>
+            <option value="Nepali">Nepali</option> <option value="Morwegian">Norwegian</option> <option value="Polish">Polish</option>
+            <option value="Portuguese">Portuguese</option> <option value="Romanian">Romanian</option> <option value="Russian">Russian</option>
+            <option value="Serbian">Serbian</option> <option value="Sinhala">Sinhala</option> <option value="Slovak">Slovak</option>
+            <option value="Spanish">Spanish</option> <option value="Sudanese">Sudanese</option> <option value="Swahili">Swahili</option>
+            <option value="Swedish">Swedish</option> <option value="Tamil">Tamil</option> <option value="Telugu">Telugu</option>
+            <option value="Thai">Thai</option> <option value="Turkish">Turkish</option> <option value="Ukranian">Ukranian</option>
+            <option value="Urdu">Urdu</option> <option value="Vietnamese">Vietnamese</option> <option value="Welsh">Welsh</option> 
+            <option value="Chinese (Mandarin/China)">Chinese (Mandarin/China)</option> <option value="Chinese (Mandarin/Taiwan)">Chinese (Mandarin/Taiwan)</option>
+            <option value="English (US)">English (US)</option> <option value="English (Canada)">English (Canada)</option> <option value="English (UK)">English (UK)</option> 
+            <option value="English (Australia)">English (Australia)</option> <option value="English (Ghana)">English (Ghana)</option> 
+            <option value="English (India)">English (India)</option> <option value="English (Ireland)">English (Ireland)</option> 
+            <option value="English (New Zealand)">English (New Zealand)</option> <option value="English (Nigeria)">English (Nigeria)</option> 
+            <option value="English (Philippines)">English (Philippines)</option> <option value="English (South Africa)">English (South Africa)</option>
+            <option value="English (Tanzania)">English (Tanzania)</option> <option value="French (Canada)">French (Canada)</option>
+            <option value="French (France)">French (France)</option> <option value="Portuguese (Brazil)">Portuguese (Brazil)</option>
+            <option value="Portuguese (Portugal)">Portuguese (Portugal)</option> <option value="Spanish (Spain)">Spanish (Spain)</option>
+            <option value="Spanish (United States)">Spanish (United States)</option>
+
+        </select><br /><br />
+
+        <!--Calender Insertion, Ref:https://www.scaler.com/topics/date-picker-in-html/-->
+
+        <label for="date"> </label>Course start date: * </label>
+        <input type="date" name = "date" id="date">
+        <input[type="date"]::-webkit-calendar-picker-indicator{
+            background: transparent;
+            bottom: 0;
+            color: transparent;
+            cursor: pointer;
+            height: auto;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: auto;
+        } > <br /><br />
+
+        <!-- Submit Tab creation -->
+        <div>
+            <button>Submit</button>
+        </div>
+        <!--<input type="submit" value="Submit">-->
+    </form>
+ 
+</body>
+</html>
