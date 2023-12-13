@@ -10,12 +10,13 @@ import os
 from Split_word import Splitword
 from sqlalchemy import exc
 
+from fastapi.middleware.wsgi import WSGIMiddleware
+
+from fastapi.middleware.cors import CORSMiddleware
 
 
+#Database Creation
 models.Base.metadata.create_all(bind=engine)
-
-
-app = FastAPI()
 
 def get_db():
     db = SessionLocal()
@@ -23,26 +24,46 @@ def get_db():
         yield db
     finally:
         db.close()
+
+app = FastAPI()
+
+#CORS to connect to any ip
+origins = ["http://localhost.tiangolo.com",
+    "https://localhost.tiangolo.com",
+    "http://localhost",
+    "http://localhost:9090"]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 @app.get("/")
-async def root():
+async def root(request):
     return {"Hello": "World"}
 
 
-
+#Create student Record
 @app.post("/createpost", status_code=status.HTTP_201_CREATED )
-async def tt_speech(details:p_model_type.Post, response:Response, db: Session= Depends(get_db)):
+def tt_speech(details:p_model_type.Post, response:Response, db: Session= Depends(get_db)):
+    # print(details.first_name, details.pronoun)
+
+    
 
     new_dict = details.dict()
     # print(new_dict)
     name = [details.first_name, details.last_name]
     full_name = " ".join(name)
-    new_dict["full_name"] = full_name
-    file_name = full_name+str(details.student_id)
+    new_dict["full_name"] = full_name  
+    file_name = full_name+str(details.student_id)  
     pronoun = details.pronoun
 
 
     different_language(text=full_name,lang=details.lang_name)
-    with open(f"{full_name}.wav", "rb") as file:
+    with open(f"{full_name}.wav", "rb") as file: 
         audio_binary = file.read()
     new_dict["audio_binary"] = audio_binary
     if os.path.exists(f"{full_name}.wav"):
@@ -98,13 +119,16 @@ async def tt_speech(details:p_model_type.Post, response:Response, db: Session= D
             "results": results}
 
 
+#creating selection record
 @app.post("/selection", status_code=status.HTTP_201_CREATED)
-async def selection(details:p_model_type.Selection, db: Session= Depends(get_db)):
+def selection(details:p_model_type.Selection, db: Session= Depends(get_db)):
+    print(details.student_id, details.name)
     statement_dict = []
     for i in range(len(details.name)):
         data = {"student_id":details.student_id,
                 "name":details.name[i],
                 "name_selection":details.name_selection[i],
+                "audio_selection":"string",
                 "votes":details.votes,
                 "show":details.show}
         statement_dict.append(data)
@@ -114,9 +138,10 @@ async def selection(details:p_model_type.Selection, db: Session= Depends(get_db)
         new_data = models.Namepronounciation(**stat_dict)
         db.add(new_data)
         db.commit()
-        db.refresh(new_data)
+        # db.refresh(new_data)
+
 
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", port=9080, log_level="info", reload=True)
+    uvicorn.run("main:app", port=8081, log_level="info", reload=True)

@@ -29,7 +29,7 @@ class Namepronounciation(Base):
     name_selection = Column(String, nullable=False)
     audio_selection = Column(String, nullable=True)
     votes = Column(Integer, nullable=False, server_default= text('0'))
-    show = Column(Boolean, server_default='False')
-    
+    show = Column(Boolean, server_default='False') 
+     
 
 
