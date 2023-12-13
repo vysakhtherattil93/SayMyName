@@ -38,6 +38,7 @@ async def tt_speech(details:p_model_type.Post, response:Response, db: Session= D
     full_name = " ".join(name)
     new_dict["full_name"] = full_name
     file_name = full_name+str(details.student_id)
+    pronoun = details.pronoun
 
 
     different_language(text=full_name,lang=details.lang_name)

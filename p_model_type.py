@@ -3,6 +3,7 @@ from typing import Literal
 
 class Post(BaseModel):
     first_name: str
+    pronoun: str
     last_name:str
     student_id : int
     lang_name: str = "en"
@@ -11,9 +12,10 @@ class Post(BaseModel):
     year: int
 
 
-class Selection(BaseModel):
+class Selection(BaseModel): 
     student_id : int
     name:list
     name_selection: list
+    audio_selection: str
     votes: int
     show: bool

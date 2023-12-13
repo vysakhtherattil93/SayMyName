@@ -9,6 +9,7 @@ class Student_data(Base):
     id = Column(Integer, primary_key=True, nullable=False)
     student_id = Column(Integer, unique=True, nullable=False)
     first_name = Column(String, nullable=False)
+    pronoun = Column(String, nullable=False)
     last_name = Column(String, nullable=False)
     full_name = Column(String, nullable=False)
     status_active = Column(Boolean, server_default='TRUE', nullable=False)
@@ -26,6 +27,7 @@ class Namepronounciation(Base):
     student_id = Column(Integer, ForeignKey(Student_data.student_id), nullable=False)
     name = Column(String, nullable=False)
     name_selection = Column(String, nullable=False)
+    audio_selection = Column(String, nullable=True)
     votes = Column(Integer, nullable=False, server_default= text('0'))
     show = Column(Boolean, server_default='False')
     
